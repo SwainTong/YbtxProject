@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-28 23:24:19 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ybtx.domain.Product" table="product" schema="dbo" catalog="workmanager">
+        <id name="productId" type="int">
+            <column name="productId" />
+            <generator class="assigned" />
+        </id>
+        <property name="productName" type="serializable">
+            <column name="productName" not-null="true" />
+        </property>
+        <property name="productType" type="serializable">
+            <column name="productType" not-null="true" />
+        </property>
+        <property name="productAmount" type="int">
+            <column name="productAmount" not-null="true" />
+        </property>
+        <set name="materials" table="material" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="materialProduct" not-null="true" />
+            </key>
+            <one-to-many class="com.ybtx.domain.Material" />
+        </set>
+        <set name="makes" table="make" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="makeProduct" />
+            </key>
+            <one-to-many class="com.ybtx.domain.Make" />
+        </set>
+        <set name="submits" table="submit" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="submitProduct" not-null="true" />
+            </key>
+            <one-to-many class="com.ybtx.domain.Submit" />
+        </set>
+    </class>
+</hibernate-mapping>

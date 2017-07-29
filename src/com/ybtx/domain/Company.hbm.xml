@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-28 23:24:19 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ybtx.domain.Company" table="company" schema="dbo" catalog="workmanager">
+        <id name="companyId" type="int">
+            <column name="companyId" />
+            <generator class="assigned" />
+        </id>
+        <property name="companyName" type="serializable">
+            <column name="companyName" not-null="true" />
+        </property>
+        <set name="receives" table="receive" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="receiveCompany" />
+            </key>
+            <one-to-many class="com.ybtx.domain.Receive" />
+        </set>
+        <set name="submits" table="submit" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="submitCompany" not-null="true" />
+            </key>
+            <one-to-many class="com.ybtx.domain.Submit" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-28 23:24:19 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ybtx.domain.Use" table="use" schema="dbo" catalog="workmanager">
+        <id name="useId" type="int">
+            <column name="useId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="employee" class="com.ybtx.domain.Employee" fetch="select">
+            <column name="useEmployee" not-null="true" />
+        </many-to-one>
+        <many-to-one name="material" class="com.ybtx.domain.Material" fetch="select">
+            <column name="useMaterial" not-null="true" />
+        </many-to-one>
+        <property name="useDate" type="serializable">
+            <column name="useDate" not-null="true" />
+        </property>
+        <property name="useAmount" type="int">
+            <column name="useAmount" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

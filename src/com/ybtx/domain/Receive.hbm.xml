@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-7-28 23:24:19 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.ybtx.domain.Receive" table="receive" schema="dbo" catalog="workmanager">
+        <composite-id name="id" class="com.ybtx.domain.ReceiveId">
+            <key-property name="receiveId" type="java.lang.Integer">
+                <column name="receiveId" />
+            </key-property>
+            <key-property name="receiveCompany" type="java.lang.Integer">
+                <column name="receiveCompany" />
+            </key-property>
+            <key-property name="receiveMaterial" type="java.lang.Integer">
+                <column name="receiveMaterial" />
+            </key-property>
+            <key-property name="receiveDate" type="serializable">
+                <column name="receiveDate" />
+            </key-property>
+            <key-property name="receiveAmount" type="java.lang.Integer">
+                <column name="receiveAmount" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="company" class="com.ybtx.domain.Company" update="false" insert="false" fetch="select">
+            <column name="receiveCompany" />
+        </many-to-one>
+        <many-to-one name="material" class="com.ybtx.domain.Material" update="false" insert="false" fetch="select">
+            <column name="receiveMaterial" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
