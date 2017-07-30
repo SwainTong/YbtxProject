@@ -17,8 +17,6 @@ public interface MakeDao {
 	public int findTotalCount();
 	//根据id去查询生产记录
 	public List<Make> findById(int Id,int currentPage,int pageSize);
-	/*public Organization findBookById(int oid);
-	public int findTotalCount();*/
-	
-	/*public Activity findActivityById(int aid);*/
+	//直接执行sql语句进行查询的方法
+    public List queryBySql(String sql);
 }

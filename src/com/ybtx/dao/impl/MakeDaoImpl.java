@@ -7,6 +7,7 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -18,7 +19,7 @@ import com.ybtx.domain.Make;
 import com.ybtx.domain.Product;
 
 public class MakeDaoImpl extends HibernateDaoSupport implements MakeDao{
-
+	
 	@Override
 	public void add(Make make) {
 		this.getHibernateTemplate().save(make);
@@ -60,5 +61,21 @@ public class MakeDaoImpl extends HibernateDaoSupport implements MakeDao{
 		List<Make> makeList = new ArrayList();
 		makeList.add(this.getHibernateTemplate().get(Make.class,Id));
 		return makeList;
-	}
+	} 
+    
+   
+    //直接执行sql语句进行查询的方法
+	@Override
+    public List queryBySql(String sql) {
+    	List<Object[]> list = this.getSession().createSQLQuery(sql).list();
+        return list;    
+    }    
+        
+ /*   public int excuteBySql(String sql)    
+    {    
+        int result ;    
+        SQLQuery query = this.getSession().createSQLQuery(sql);    
+        result = query.executeUpdate();    
+        return result;    
+    }    */
 }

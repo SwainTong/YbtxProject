@@ -6,7 +6,7 @@
     <class name="com.ybtx.domain.Make" table="make" schema="dbo" catalog="workmanager">
         <id name="makeId" type="int">
             <column name="makeId" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="employee" class="com.ybtx.domain.Employee" fetch="select" lazy="false">
             <column name="makeEmployee" />

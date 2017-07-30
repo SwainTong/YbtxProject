@@ -54,10 +54,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			 <jsp:forward page="login.jsp"></jsp:forward>
 <%}}%> --%>
 
-<!-- 从数据库读取所有员工信息 -->
-<c:if test="${empty requestScope.makePage}">
-	<jsp:forward page="Make_findAll"></jsp:forward>
-</c:if>
+<!-- 从数据库查询每个员工的工资信息 -->
+<%-- <c:if test="${empty requestScope.EmployeeWageList}">
+	<jsp:forward page="Make_searchEmployeeWage"></jsp:forward>
+</c:if> --%>
 
 
 <body>
@@ -104,31 +104,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a href="MakeRecordAdd.jsp">添加记录</a></h3>
 				</div>
 				<div class="panel-body">
+					<script type="javascript">
+						//获取完整的日期  
+						var date=new Date;  
+						var year=date.getFullYear();   
+						var month=date.getMonth()+1;
+						month =(month<10 ? "0"+month:month);   
+						var mydate = (year.toString()+"-"+month.toString()+"-"+"28");
+						
+					</script>
+					<form action="Make_searchEmployeeWage" method="post" style="font-size: 17px;" class="container">
+						开始时间&nbsp;&nbsp;<input type="Date" name="startDate" value="2017-07-28">&nbsp;&nbsp;
+						截止时间&nbsp;&nbsp;<input type="Date" name="endDate" value=mydate>&nbsp;&nbsp;
+						<input type="submit" value="查询"><br><br>
+					</form>
 					<table class="table table-striped">
 						<tr>
-							<th>编号</th>
-							<th>日期</th>
 							<th>员工姓名</th>
-							<th>产品</th>
-							<th>数量</th>
 							<th>工资</th>
-							<th></th>
-							<th></th>
 						</tr>
-						<c:forEach items="${requestScope.makePage.dataList}" var="employee">
+						<c:forEach items="${requestScope.EmployeeWageList}" var="employeeWage">
 							<tr>
-								<td>${employee.makeId}</td>
-								<td>${employee.makeDate}</td>
-								<td>${employee.employee.employeeName}</td>
-								<td>${employee.product.productName}${employee.product.productType}</td>
-								<td>${employee.makeAmount}</td>
-								<td>${employee.makeAmount*employee.product.productWage}</td>
-								<td><a href="Product_searchBeforeUpdate?memberId=${member.memberId }">修改</a></td>
-                                <td><a href="Member_delete?memberId=${member.memberId }">删除</a></td>
+								<td>${employeeWage[0]}</td>
+								<td>${employeeWage[1]}</td>
 							</tr>
 						</c:forEach>
+						<tr style="font-size: 30px;">
+							<td>总计</td>
+							<td>${requestScope.totalWage}</td>
+						</tr>
 					</table>
-					每页${requestScope.makePage.pageSize}条记录 
+					<%-- 每页${requestScope.makePage.pageSize}条记录 
 					总共${requestScope.makePage.totalPage}页
 					当前：第${requestScope.makePage.currentPage} / ${requestScope.makePage.totalPage}页
 					请选择：第
@@ -140,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<a href="Make_findAll?currentPage=${i}">${i}</a>
 						</c:if>
 					</c:forEach>
-					页
+					页 --%>
 				</div>
 			</div>
 		</div>

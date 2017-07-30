@@ -18,6 +18,15 @@ public class Product implements java.io.Serializable {
 	private Set materials = new HashSet(0);
 	private Set makes = new HashSet(0);
 	private Set submits = new HashSet(0);
+	private String usage;
+
+	public String getUsage() {
+		return usage;
+	}
+
+	public void setUsage(String usage) {
+		this.usage = usage;
+	}
 
 	public Product() {
 	}

@@ -13,6 +13,26 @@ public class Make implements java.io.Serializable {
 	private Integer makeAmount;
 	private Integer employeeId;
 	private Integer productId;
+	//查询的起止日期
+	private String startDate;
+	private String endDate;
+	
+
+	public String getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
+	}
+
+	public String getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
+	}
 
 	public Integer getEmployeeId() {
 		return employeeId;

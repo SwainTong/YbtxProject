@@ -40,7 +40,13 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 	public String findAll() {
 		ProductPage productPage = productService.findAll(currentPage, pageSize);
 		ServletActionContext.getRequest().setAttribute("productPage", productPage);
-		return SUCCESS;
+		if(product.getUsage()!=null && product.getUsage().equals("MakeRecordAdd"))
+		{
+			return "MakeRecordAdd";
+		}
+		else {
+			return SUCCESS;
+		}
 	}
 	
 	public int getCurrentPage() {

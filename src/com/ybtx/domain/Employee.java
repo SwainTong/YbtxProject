@@ -15,6 +15,15 @@ public class Employee implements java.io.Serializable {
 	private String employeePicture;
 	private Set uses = new HashSet(0);
 	private Set makes = new HashSet(0);
+	private String usage;
+
+	public String getUsage() {
+		return usage;
+	}
+
+	public void setUsage(String usage) {
+		this.usage = usage;
+	}
 
 	public Employee() {
 	}

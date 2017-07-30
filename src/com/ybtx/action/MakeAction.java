@@ -1,5 +1,7 @@
 package com.ybtx.action;
 
+import java.util.List;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -73,6 +75,31 @@ public class MakeAction extends ActionSupport implements ModelDriven<Make>{
 		MakePage makePage = makeService.findById(make.getMakeId(),currentPage, pageSize);
 		ServletActionContext.getRequest().setAttribute("makePage", makePage);
 		return SUCCESS;		
+	}
+	//查询指定时间段里面，每个工人的工资（每条生产记录的工资之和 group by employee）
+	public String searchEmployeeWage(){
+		String start =  make.getStartDate();
+		String end = make.getEndDate();
+		String sql = "SELECT employee.employeeName,SUM(makeAmount * productWage) 工资 " + 
+				"FROM make,product,employee " + 
+				"WHERE make.makeProduct = product.productId " + 
+				"	AND make.makeEmployee = employee.employeeId " + 
+				"	AND make.makeDate > '" + start +
+				"'	AND make.makeDate < '" + end +
+				"' GROUP BY employee.employeeName"+
+				" ORDER BY 工资 DESC"; 
+		System.out.println(sql);
+        List<Object[]> list = makeService.queryBySql(sql);    
+        System.out.println("---"+list.size());
+        double totalWage = 0;
+        for(Object[] obj :list)    
+        {    
+            System.out.println(obj[0]+" -- "+ obj[1]);
+            totalWage = totalWage + (double)obj[1];
+        }
+        ServletActionContext.getRequest().setAttribute("EmployeeWageList", list);
+        ServletActionContext.getRequest().setAttribute("totalWage",totalWage);
+		return "EmployeeWageList";
 	}
 	
 	@Override

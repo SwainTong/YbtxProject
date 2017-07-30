@@ -67,4 +67,9 @@ public class MakeServiceImpl implements MakeService{
 		return makePage;
 	}
 	
+	@Override
+	public List queryBySql(String sql) {    
+        List<Object[]> list = makeDao.queryBySql(sql);    
+        return list;    
+    }   
 }

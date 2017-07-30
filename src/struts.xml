@@ -9,12 +9,15 @@
     <package name="default" namespace="/" extends="struts-default">	
 		<action name="Product_*" class="ProductAction" method="{1}">
 			<result name="success">ProductManager.jsp</result>
+			<result name="MakeRecordAdd">MakeRecordAdd.jsp</result>
 		</action>
 		<action name="Employee_*" class="EmployeeAction" method="{1}">
 			<result name="success">EmployeeManager.jsp</result>
+			<result name="MakeRecordAdd">MakeRecordAdd.jsp</result>
 		</action>
 		<action name="Make_*" class="MakeAction" method="{1}">
 			<result name="success">MakeRecordManager.jsp</result>
+			<result name="EmployeeWageList">EmployeeWageCalculate.jsp</result>
 		</action>
     </package>
 

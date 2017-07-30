@@ -55,7 +55,13 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	public String findAll() {
 		EmployeePage employeePage = employeeService.findAll(currentPage, pageSize);
 		ServletActionContext.getRequest().setAttribute("employeePage", employeePage);
-		return SUCCESS;
+		if(employee.getUsage() != null && employee.getUsage().equals("MakeRecordAdd"))
+		{
+			return "MakeRecordAdd";
+		}
+		else {
+			return SUCCESS;
+		}
 	}
 	
 	//根据Id查找员工信息
