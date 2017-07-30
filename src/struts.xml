@@ -7,7 +7,15 @@
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
     <package name="default" namespace="/" extends="struts-default">	
-
+		<action name="Product_*" class="ProductAction" method="{1}">
+			<result name="success">ProductManager.jsp</result>
+		</action>
+		<action name="Employee_*" class="EmployeeAction" method="{1}">
+			<result name="success">EmployeeManager.jsp</result>
+		</action>
+		<action name="Make_*" class="MakeAction" method="{1}">
+			<result name="success">MakeRecordManager.jsp</result>
+		</action>
     </package>
 
 </struts>

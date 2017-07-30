@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-7-28 23:24:19 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2017-7-29 17:34:30 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.ybtx.domain.Submit" table="submit" schema="dbo" catalog="workmanager">
         <id name="submitId" type="int">
@@ -14,8 +14,8 @@
         <many-to-one name="product" class="com.ybtx.domain.Product" fetch="select">
             <column name="submitProduct" not-null="true" />
         </many-to-one>
-        <property name="submitDate" type="serializable">
-            <column name="submitDate" not-null="true" />
+        <property name="submitDate" type="string">
+            <column name="submitDate" length="50" not-null="true" />
         </property>
         <property name="submitAmount" type="int">
             <column name="submitAmount" not-null="true" />

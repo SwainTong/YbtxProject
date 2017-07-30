@@ -13,7 +13,7 @@
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
-<!-- 没有Hibernate配置文件 -->
+	<!-- 没有Hibernate配置文件 -->
 	<!-- 连接池信息 -->
 	<!-- 引入外部属性文件. -->
 	<context:property-placeholder location="classpath:jdbc.properties"/>
@@ -45,26 +45,54 @@
 		<!-- 加载映射 -->
 		 <property name="mappingResources">
 			<list>
-				<!-- <value>com/ybtx/domain/Company.hbm.xml</value> -->
+				<value>com/ybtx/domain/Product.hbm.xml</value>
+				<value>com/ybtx/domain/Company.hbm.xml</value>
+				<value>com/ybtx/domain/Employee.hbm.xml</value>
+				<value>com/ybtx/domain/Make.hbm.xml</value>
+				<value>com/ybtx/domain/Use.hbm.xml</value>
+				<value>com/ybtx/domain/Material.hbm.xml</value>
+				<value>com/ybtx/domain/Receive.hbm.xml</value>
+				<value>com/ybtx/domain/Submit.hbm.xml</value>
 			</list>
 		</property> 
 	</bean>
 	
 	<!-- 配置Action -->
-	<!-- <bean id="orgAction" class="com.nankai.app.action.OrgAction" scope="prototype">
-		<property name="orgService" ref="orgService"/>
-	</bean> -->
+	<bean id="ProductAction" class="com.ybtx.action.ProductAction" scope="prototype">
+		<property name="productService" ref="productService"/>
+	</bean>
+	<bean id="EmployeeAction" class="com.ybtx.action.EmployeeAction" scope="prototype">
+		<property name="employeeService" ref="employeeService"/>
+	</bean>
+	<bean id="MakeAction" class="com.ybtx.action.MakeAction" scope="prototype">
+		<property name="makeService" ref="makeService"/>
+		<property name="employeeService" ref="employeeService"/>
+		<property name="productService" ref="productService"/>
+	</bean>
+	
 	
 	
 	<!-- Service的配置 -->
-	<!-- <bean id="orgService" class="com.nankai.app.service.impl.OrgServiceImpl">
-		<property name="orgDao" ref="orgDao"/>
-	</bean> -->
+	<bean id="productService" class="com.ybtx.service.impl.ProductServiceImpl">
+		<property name="productDao" ref="productDao"/>
+	</bean>
+	<bean id="employeeService" class="com.ybtx.service.impl.EmployeeServiceImpl">
+		<property name="employeeDao" ref="employeeDao"/>
+	</bean>
+	<bean id="makeService" class="com.ybtx.service.impl.MakeServiceImpl">
+		<property name="makeDao" ref="makeDao"/>
+	</bean>
 
 	<!-- DAO的配置 -->
-	<!-- <bean id="orgDao" class="com.nankai.app.dao.impl.OrgDaoImpl">
+	<bean id="productDao" class="com.ybtx.dao.impl.ProductDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
-	</bean> -->
+	</bean>
+	<bean id="employeeDao" class="com.ybtx.dao.impl.EmployeeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="makeDao" class="com.ybtx.dao.impl.MakeDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 
 	
 	<!-- 管理事务 -->
@@ -74,4 +102,5 @@
 	
 	<!-- 注解开启事务 -->
 	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
 </beans>

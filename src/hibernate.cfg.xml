@@ -46,13 +46,14 @@
 	<property name="c3p0.idle_test_period">3000</property>
 
 	<!-- 通知Hibernate加载那些映射文件 -->
-<!-- 	<mapping resource="com/nankai/app/domain/Member.hbm.xml" />
-	<mapping resource="com/nankai/app/domain/Department.hbm.xml" />
-	<mapping resource="com/nankai/app/domain/Register.hbm.xml" />
-	<mapping resource="com/nankai/app/domain/Activity.hbm.xml" />
-	<mapping resource="com/nankai/app/domain/Organization.hbm.xml" />
-	<mapping resource="com/nankai/app/domain/Material.hbm.xml" />
-	 -->
+	<!-- <mapping resource="com/ybtx/domain/Product.hbm.xml" />
+	<mapping resource="com/ybtx/domain/Company.hbm.xml" />
+	<mapping resource="com/ybtx/domain/Employee.hbm.xml" />
+	<mapping resource="com/ybtx/domain/Make.hbm.xml" />
+	<mapping resource="com/ybtx/domain/Use.hbm.xml" />
+	<mapping resource="com/ybtx/domain/Material.hbm.xml" />
+	<mapping resource="com/ybtx/domain/Receive.hbm.xml" />
+	<mapping resource="com/ybtx/domain/Submit.hbm.xml" /> -->
 	
 
 </session-factory>

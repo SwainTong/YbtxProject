@@ -1,7 +1,6 @@
 package com.ybtx.domain;
-// Generated 2017-7-28 23:24:18 by Hibernate Tools 3.4.0.CR1
+// Generated 2017-7-29 17:34:30 by Hibernate Tools 3.4.0.CR1
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,22 +10,22 @@ import java.util.Set;
 public class Employee implements java.io.Serializable {
 
 	private int employeeId;
-	private Serializable employeeName;
-	private Serializable employeePhone;
-	private Serializable employeePicture;
+	private String employeeName;
+	private String employeePhone;
+	private String employeePicture;
 	private Set uses = new HashSet(0);
 	private Set makes = new HashSet(0);
 
 	public Employee() {
 	}
 
-	public Employee(int employeeId, Serializable employeeName) {
+	public Employee(int employeeId, String employeeName) {
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 	}
 
-	public Employee(int employeeId, Serializable employeeName, Serializable employeePhone, Serializable employeePicture,
-			Set uses, Set makes) {
+	public Employee(int employeeId, String employeeName, String employeePhone, String employeePicture, Set uses,
+			Set makes) {
 		this.employeeId = employeeId;
 		this.employeeName = employeeName;
 		this.employeePhone = employeePhone;
@@ -43,27 +42,27 @@ public class Employee implements java.io.Serializable {
 		this.employeeId = employeeId;
 	}
 
-	public Serializable getEmployeeName() {
+	public String getEmployeeName() {
 		return this.employeeName;
 	}
 
-	public void setEmployeeName(Serializable employeeName) {
+	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
 
-	public Serializable getEmployeePhone() {
+	public String getEmployeePhone() {
 		return this.employeePhone;
 	}
 
-	public void setEmployeePhone(Serializable employeePhone) {
+	public void setEmployeePhone(String employeePhone) {
 		this.employeePhone = employeePhone;
 	}
 
-	public Serializable getEmployeePicture() {
+	public String getEmployeePicture() {
 		return this.employeePicture;
 	}
 
-	public void setEmployeePicture(Serializable employeePicture) {
+	public void setEmployeePicture(String employeePicture) {
 		this.employeePicture = employeePicture;
 	}
 

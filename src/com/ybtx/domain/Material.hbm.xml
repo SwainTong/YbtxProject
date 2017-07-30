@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-7-28 23:24:19 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2017-7-29 17:34:30 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.ybtx.domain.Material" table="material" schema="dbo" catalog="workmanager">
         <id name="materialId" type="int">
@@ -11,8 +11,8 @@
         <many-to-one name="product" class="com.ybtx.domain.Product" fetch="select">
             <column name="materialProduct" not-null="true" />
         </many-to-one>
-        <property name="materialName" type="serializable">
-            <column name="materialName" not-null="true" />
+        <property name="materialName" type="string">
+            <column name="materialName" length="50" not-null="true" />
         </property>
         <property name="materialAmount" type="int">
             <column name="materialAmount" not-null="true" />

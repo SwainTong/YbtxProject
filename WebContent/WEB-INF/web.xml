@@ -10,7 +10,22 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
 
-
+<!-- 配置log4j文件 --> 
+  <context-param>  
+    <param-name>webAppRootKey</param-name>  
+    <param-value>webapp.sample.root</param-value>  
+  </context-param>  
+  <context-param>  
+    <param-name>log4jConfigLocation</param-name>  
+    <param-value>/WEB-INF/log4j.properties</param-value>  
+  </context-param>  
+  <context-param>  
+    <param-name>log4jRefreshInterval</param-name>  
+    <param-value>5000</param-value>  
+  </context-param>  
+  <listener>  
+    <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>  
+  </listener>  
 <!-- 配置Spring的监听器 -->
 	<listener>
 		<!-- 监听器默认加载的是WEB-INF/applicationContext.xml -->
@@ -45,8 +60,8 @@
     <filter-mapping>
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
-        <!-- <dispatcher>REQUEST</dispatcher>
-        <dispatcher>FORWARD</dispatcher> -->
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
     
 </web-app>

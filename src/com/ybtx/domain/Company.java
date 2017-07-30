@@ -1,7 +1,6 @@
 package com.ybtx.domain;
-// Generated 2017-7-28 23:24:18 by Hibernate Tools 3.4.0.CR1
+// Generated 2017-7-29 17:34:30 by Hibernate Tools 3.4.0.CR1
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,19 +10,19 @@ import java.util.Set;
 public class Company implements java.io.Serializable {
 
 	private int companyId;
-	private Serializable companyName;
+	private String companyName;
 	private Set receives = new HashSet(0);
 	private Set submits = new HashSet(0);
 
 	public Company() {
 	}
 
-	public Company(int companyId, Serializable companyName) {
+	public Company(int companyId, String companyName) {
 		this.companyId = companyId;
 		this.companyName = companyName;
 	}
 
-	public Company(int companyId, Serializable companyName, Set receives, Set submits) {
+	public Company(int companyId, String companyName, Set receives, Set submits) {
 		this.companyId = companyId;
 		this.companyName = companyName;
 		this.receives = receives;
@@ -38,11 +37,11 @@ public class Company implements java.io.Serializable {
 		this.companyId = companyId;
 	}
 
-	public Serializable getCompanyName() {
+	public String getCompanyName() {
 		return this.companyName;
 	}
 
-	public void setCompanyName(Serializable companyName) {
+	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
 

@@ -1,7 +1,6 @@
 package com.ybtx.domain;
-// Generated 2017-7-28 23:24:18 by Hibernate Tools 3.4.0.CR1
+// Generated 2017-7-29 17:34:30 by Hibernate Tools 3.4.0.CR1
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,9 +10,11 @@ import java.util.Set;
 public class Product implements java.io.Serializable {
 
 	private int productId;
-	private Serializable productName;
-	private Serializable productType;
+	private String productName;
+	private String productType;
 	private int productAmount;
+	private double productWage;
+	private double productMargin;
 	private Set materials = new HashSet(0);
 	private Set makes = new HashSet(0);
 	private Set submits = new HashSet(0);
@@ -21,19 +22,24 @@ public class Product implements java.io.Serializable {
 	public Product() {
 	}
 
-	public Product(int productId, Serializable productName, Serializable productType, int productAmount) {
+	public Product(int productId, String productName, String productType, int productAmount, double productWage,
+			double productMargin) {
 		this.productId = productId;
 		this.productName = productName;
 		this.productType = productType;
 		this.productAmount = productAmount;
+		this.productWage = productWage;
+		this.productMargin = productMargin;
 	}
 
-	public Product(int productId, Serializable productName, Serializable productType, int productAmount, Set materials,
-			Set makes, Set submits) {
+	public Product(int productId, String productName, String productType, int productAmount, double productWage,
+			double productMargin, Set materials, Set makes, Set submits) {
 		this.productId = productId;
 		this.productName = productName;
 		this.productType = productType;
 		this.productAmount = productAmount;
+		this.productWage = productWage;
+		this.productMargin = productMargin;
 		this.materials = materials;
 		this.makes = makes;
 		this.submits = submits;
@@ -47,19 +53,19 @@ public class Product implements java.io.Serializable {
 		this.productId = productId;
 	}
 
-	public Serializable getProductName() {
+	public String getProductName() {
 		return this.productName;
 	}
 
-	public void setProductName(Serializable productName) {
+	public void setProductName(String productName) {
 		this.productName = productName;
 	}
 
-	public Serializable getProductType() {
+	public String getProductType() {
 		return this.productType;
 	}
 
-	public void setProductType(Serializable productType) {
+	public void setProductType(String productType) {
 		this.productType = productType;
 	}
 
@@ -69,6 +75,22 @@ public class Product implements java.io.Serializable {
 
 	public void setProductAmount(int productAmount) {
 		this.productAmount = productAmount;
+	}
+
+	public double getProductWage() {
+		return this.productWage;
+	}
+
+	public void setProductWage(double productWage) {
+		this.productWage = productWage;
+	}
+
+	public double getProductMargin() {
+		return this.productMargin;
+	}
+
+	public void setProductMargin(double productMargin) {
+		this.productMargin = productMargin;
 	}
 
 	public Set getMaterials() {

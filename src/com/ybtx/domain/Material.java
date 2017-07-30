@@ -1,7 +1,6 @@
 package com.ybtx.domain;
-// Generated 2017-7-28 23:24:18 by Hibernate Tools 3.4.0.CR1
+// Generated 2017-7-29 17:34:30 by Hibernate Tools 3.4.0.CR1
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,7 +11,7 @@ public class Material implements java.io.Serializable {
 
 	private int materialId;
 	private Product product;
-	private Serializable materialName;
+	private String materialName;
 	private int materialAmount;
 	private Set receives = new HashSet(0);
 	private Set uses = new HashSet(0);
@@ -20,15 +19,14 @@ public class Material implements java.io.Serializable {
 	public Material() {
 	}
 
-	public Material(int materialId, Product product, Serializable materialName, int materialAmount) {
+	public Material(int materialId, Product product, String materialName, int materialAmount) {
 		this.materialId = materialId;
 		this.product = product;
 		this.materialName = materialName;
 		this.materialAmount = materialAmount;
 	}
 
-	public Material(int materialId, Product product, Serializable materialName, int materialAmount, Set receives,
-			Set uses) {
+	public Material(int materialId, Product product, String materialName, int materialAmount, Set receives, Set uses) {
 		this.materialId = materialId;
 		this.product = product;
 		this.materialName = materialName;
@@ -53,11 +51,11 @@ public class Material implements java.io.Serializable {
 		this.product = product;
 	}
 
-	public Serializable getMaterialName() {
+	public String getMaterialName() {
 		return this.materialName;
 	}
 
-	public void setMaterialName(Serializable materialName) {
+	public void setMaterialName(String materialName) {
 		this.materialName = materialName;
 	}
 

@@ -1,21 +1,21 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 2017-7-28 23:24:19 by Hibernate Tools 3.4.0.CR1 -->
+<!-- Generated 2017-7-29 17:34:30 by Hibernate Tools 3.4.0.CR1 -->
 <hibernate-mapping>
     <class name="com.ybtx.domain.Employee" table="employee" schema="dbo" catalog="workmanager">
         <id name="employeeId" type="int">
             <column name="employeeId" />
             <generator class="assigned" />
         </id>
-        <property name="employeeName" type="serializable">
-            <column name="employeeName" not-null="true" />
+        <property name="employeeName" type="string">
+            <column name="employeeName" length="50" not-null="true" />
         </property>
-        <property name="employeePhone" type="serializable">
-            <column name="employeePhone" />
+        <property name="employeePhone" type="string">
+            <column name="employeePhone" length="50" />
         </property>
-        <property name="employeePicture" type="serializable">
-            <column name="employeePicture" />
+        <property name="employeePicture" type="string">
+            <column name="employeePicture" length="127" />
         </property>
         <set name="uses" table="use" inverse="true" lazy="true" fetch="select">
             <key>
