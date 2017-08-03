@@ -6,7 +6,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
-	<title>折线图</title>
+	<title>工资详情</title>
   <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
   <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
   <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
@@ -14,19 +14,7 @@
   <c:if test="${empty requestScope.employeeWageByDay}">
 	<jsp:forward page="Make_employeeWageByDay"></jsp:forward>
   </c:if>
-<%--   <c:forEach items="${requestScope.employeeWageByDay}" var="employeeWage">
-	${employeeWage[0]}
-	${employeeWage[1]}
-  </c:forEach> --%>
-  <script>
-  		//String jsonList = (String)request.getAttribute("employeeWageByDay");
-  		document.getElementById("table").innerHTML = "已经修改了";
-  		//横坐标
-  		var day = new Array();
-  		for(var i = 1; i < 31; i++) {
-  			day.push(i);
-  		} 
-  </script>
+
   <script>
   	
 	
@@ -40,7 +28,7 @@
             text: '工资统计'
         },
         subtitle: {
-            text: 'Source: WorldClimate.com'
+            text: '数据来源: 素青纺织品来料加工'
         },
         xAxis: {
         	
@@ -75,8 +63,10 @@
 </head>
 <body>
   <div id="container" style="min-width:700px;height:400px"></div>
-  <table style="margin-left: 500px;">
-  <tr><td style="width: 40px;font-size: 20px">表格</td></tr>
+  <table style="margin-left: 630px;">
+  <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+  <tr><td style="width: 140px;font-size: 20px;background-color: #fff;">工资表</td></tr>
+  <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
   </table>
   <script>
 		//获取json传来的每日工资
@@ -92,12 +82,21 @@
 		}
 			
 		//表格
-		var htmlstr = "<table border='1px' style=\"margin-left: 500px;\">";
-		for(var i = 0; i < wage.length; i++) {
-			htmlstr += "<tr>";
-			htmlstr += "<td style=\"width: 40px;font-size: 20px\">" + (i+1) + "</td>";
+		var htmlstr = "<table border='0px' style=\"margin-left: 300px;\">";
+		var k = 0;
+		for(var i = 0; i < wage.length-1; i++,k++) {
+			if(k % 6 == 0)
+			{
+				htmlstr += "<tr style=\"background-color: #c0c0c0;\">";
+				k++;
+			}
+			
+			htmlstr += "<td style=\"width: 60px;font-size: 20px;\">" + (i+1)+"号"+ "</td>";
 			htmlstr += "<td style=\"width: 80px;font-size: 20px\">" + wage[i] + "</td>";
-			htmlstr += "</tr>";
+			if((k+1) % 6 == 0)
+			{
+				htmlstr += "</tr><tr><td>&nbsp</td></tr>";
+			}
 		}
 		htmlstr += "</table>";
 		document.write(htmlstr); 
