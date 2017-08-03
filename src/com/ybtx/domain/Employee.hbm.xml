@@ -6,7 +6,7 @@
     <class name="com.ybtx.domain.Employee" table="employee" schema="dbo" catalog="workmanager">
         <id name="employeeId" type="int">
             <column name="employeeId" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="employeeName" type="string">
             <column name="employeeName" length="50" not-null="true" />

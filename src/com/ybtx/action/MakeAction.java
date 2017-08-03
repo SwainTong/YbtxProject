@@ -1,11 +1,15 @@
 package com.ybtx.action;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.alibaba.fastjson.JSON;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.sun.javafx.collections.MappingChange.Map;
 import com.ybtx.domain.Make;
 import com.ybtx.service.EmployeeService;
 import com.ybtx.service.MakeService;
@@ -78,14 +82,12 @@ public class MakeAction extends ActionSupport implements ModelDriven<Make>{
 	}
 	//查询指定时间段里面，每个工人的工资（每条生产记录的工资之和 group by employee）
 	public String searchEmployeeWage(){
-		String start =  make.getStartDate();
-		String end = make.getEndDate();
 		String sql = "SELECT employee.employeeName,SUM(makeAmount * productWage) 工资 " + 
 				"FROM make,product,employee " + 
 				"WHERE make.makeProduct = product.productId " + 
 				"	AND make.makeEmployee = employee.employeeId " + 
-				"	AND make.makeDate > '" + start +
-				"'	AND make.makeDate < '" + end +
+				"	AND make.makeDate > '" + make.getStartDate() +
+				"'	AND make.makeDate < '" + make.getEndDate() +
 				"' GROUP BY employee.employeeName"+
 				" ORDER BY 工资 DESC"; 
 		System.out.println(sql);
@@ -100,6 +102,38 @@ public class MakeAction extends ActionSupport implements ModelDriven<Make>{
         ServletActionContext.getRequest().setAttribute("EmployeeWageList", list);
         ServletActionContext.getRequest().setAttribute("totalWage",totalWage);
 		return "EmployeeWageList";
+	}
+	
+	//按天统计某个工人的工资
+	public String employeeWageByDay() {
+		String sql = "SELECT SUM(make.makeAmount * productWage),DAY(make.makeDate) day " + 
+				"FROM make,product,employee " + 
+				"WHERE make.makeProduct = product.productId " + 
+				"	AND make.makeEmployee = employee.employeeId " + 
+				"	AND make.makeEmployee = 1 " + 
+				"	AND MONTH(make.makeDate)=7 " + 
+				"GROUP BY make.makeDate " + 
+				"ORDER BY make.makeDate";
+		System.out.println(sql);
+		
+        List<Object[]> list = makeService.queryBySql(sql); 
+        List<HashMap<String, Double>> map_List = new ArrayList<HashMap<String, Double>>();
+        
+        
+        System.out.println("---"+list.size());
+        for(Object[] obj :list)    
+        {    
+            System.out.println(obj[0]+" -- "+ obj[1]);
+            HashMap<String,Double> map = new HashMap();
+            Integer day = (Integer) obj[1];
+            map.put("date", day.doubleValue());
+            map.put("wage", (Double) obj[0]);
+            map_List.add(map);
+        }
+   	 	String result = JSON.toJSONString(map_List);
+   	 	System.out.println("JSON"+result);
+        ServletActionContext.getRequest().setAttribute("employeeWageByDay", result);
+		return "EmployeeWageByDay";
 	}
 	
 	@Override

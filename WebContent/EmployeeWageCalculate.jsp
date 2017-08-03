@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>生产记录管理</title>
+<title>工资计算页面</title>
 <link rel="shortcut icon" href="images/timg.ico" type="image/X-icon"/>
 <link rel="stylesheet" href="css/mainDD.css">
 <link rel="stylesheet" href="css/bootstrap.minDD.css">
@@ -59,7 +59,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<jsp:forward page="Make_searchEmployeeWage"></jsp:forward>
 </c:if> --%>
 
-
 <body>
 <!-- 标题头  -->
 	<div class="header box css3-shadow" id="head">
@@ -94,28 +93,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 <!-- 表格部分 -->
+ <tr><td id="info1"></td></tr>
 <div class="header box css3-shadow" id="head">
 	<div class="slider-bg">
 		<div class="row">
 			<div class="panel">
 				<div class="panel-heading">
-					<h3 class="panel-title">生产记录管理
+					<h3 class="panel-title">工资统计
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="MakeRecordAdd.jsp">添加记录</a></h3>
 				</div>
 				<div class="panel-body">
-					<script type="javascript">
-						//获取完整的日期  
-						var date=new Date;  
-						var year=date.getFullYear();   
-						var month=date.getMonth()+1;
-						month =(month<10 ? "0"+month:month);   
-						var mydate = (year.toString()+"-"+month.toString()+"-"+"28");
-						
-					</script>
 					<form action="Make_searchEmployeeWage" method="post" style="font-size: 17px;" class="container">
-						开始时间&nbsp;&nbsp;<input type="Date" name="startDate" value="2017-07-28">&nbsp;&nbsp;
-						截止时间&nbsp;&nbsp;<input type="Date" name="endDate" value=mydate>&nbsp;&nbsp;
+						开始时间&nbsp;&nbsp;<input type="Date" name="startDate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						截止时间&nbsp;&nbsp;<input type="Date" name="endDate">&nbsp;&nbsp;
 						<input type="submit" value="查询"><br><br>
 					</form>
 					<table class="table table-striped">

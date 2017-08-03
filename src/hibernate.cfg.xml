@@ -11,10 +11,10 @@
 		com.microsoft.sqlserver.jdbc.SQLServerDriver
 	</property>
 	<property name="hibernate.connection.url"> 
-		jdbc:sqlserver://localhost:7997;database=workmanager
+		jdbc:sqlserver://swainserver.database.windows.net:1433;database=WorkManager
 	</property>
-	<property name="hibernate.connection.username">sa</property>
-	<property name="hibernate.connection.password">ybtx0223ts</property>
+	<property name="hibernate.connection.username">tong</property>
+	<property name="hibernate.connection.password">ybtx0223ts,</property>
 	<!-- Hibernate的方言 -->
 	<!-- 生成底层SQL不同的 -->
 	<property name="hibernate.dialect">

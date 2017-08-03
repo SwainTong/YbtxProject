@@ -22,6 +22,8 @@
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="${jdbc.driver}"/>
 		<!--jdbc:sqlserver://localhost:1433;database=liubag;integratedSecurity=false"?useUnicode=true&amp;characterEncoding=utf-8-->
+		<!-- jdbc:sqlserver://localhost:7997;database=workmanager -->
+		<!-- jdbc:sqlserver://swainserver.database.windows.net:1433;database=WorkManager; -->
 		<property name="jdbcUrl" value="jdbc:sqlserver://localhost:7997;database=workmanager"/>
 		<property name="user" value="${jdbc.user}"/>
 		<property name="password" value="${jdbc.password}"/>

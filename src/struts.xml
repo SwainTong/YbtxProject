@@ -18,6 +18,7 @@
 		<action name="Make_*" class="MakeAction" method="{1}">
 			<result name="success">MakeRecordManager.jsp</result>
 			<result name="EmployeeWageList">EmployeeWageCalculate.jsp</result>
+			<result name="EmployeeWageByDay">EmployeeWageByDayGraph.jsp</result>
 		</action>
     </package>
 
