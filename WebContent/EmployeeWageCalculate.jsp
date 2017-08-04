@@ -70,12 +70,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			     <div class="h_menu4"><!-- start h_menu4 -->
 					<a class="toggleMenu" href="#">Menu</a>
 					<ul class="nav">
-						<li><a href="index.jsp">产品管理</a></li>
-						<li><a href="register_search">纳新管理</a></li>
-						<li><a href="memberManager.jsp">成员管理</a></li>
-						<li><a href="memberSearch.jsp">成员查询</a></li>
-						<li><a href="activityManager.jsp">活动管理</a></li>
-						<li><a href="material_search">物资管理</a></li>
+						<li><a href="index.jsp">首页</a></li>
+						<li><a href="EmployeeManager.jsp">员工管理</a></li>
+						<li><a href="ProductManager.jsp">产品管理</a></li>
+						<li><a href="MakeRecordManager.jsp">记录管理</a></li>
+						<li><a href="EmployeeWageCalculate.jsp">月账单</a></li>
 					</ul>
 					<div style="position: absolute;top: 22px;right: 50px;">
 						<c:if test="${sessionScope.username == null}">
@@ -92,6 +91,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			  </div><!-- end header_main4 -->
 		</div>
 	</div>
+
 <!-- 表格部分 -->
  <tr><td id="info1"></td></tr>
 <div class="header box css3-shadow" id="head">
@@ -104,10 +104,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<a href="MakeRecordAdd.jsp">添加记录</a></h3>
 				</div>
 				<div class="panel-body">
-					<form action="Make_searchEmployeeWage" method="post" style="font-size: 17px;" class="container">
-						开始时间&nbsp;&nbsp;<input type="Date" name="startDate">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						截止时间&nbsp;&nbsp;<input type="Date" name="endDate">&nbsp;&nbsp;
-						<input type="submit" value="查询"><br><br>
+					<form action="Make_searchEmployeeWageMonthly" method="post" style="font-size: 17px;" class="container">
+						<!-- 开始时间&nbsp;&nbsp;<input type="Date" name="startDate"><br>
+						截止时间&nbsp;&nbsp;<input type="Date" name="endDate"><br> -->
+						查询月份&nbsp;<input type="text" name="month" style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 400;font-size: 20px; border-radius: 6px;">
+						<input type="submit" value="查询" style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 15%;font-weight: 400;font-size: 20px; border-radius: 6px;"><br><br>
 					</form>
 					<table class="table table-striped">
 						<tr>
@@ -116,13 +117,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tr>
 						<c:forEach items="${requestScope.EmployeeWageList}" var="employeeWage">
 							<tr>
-								<td>${employeeWage[0]}</td>
-								<td>${employeeWage[1]}</td>
+								<td><a href="Make_employeeWageByDay?employeeId=${employeeWage[0].employeeId}">${employeeWage[0].employeeName}</a></td>
+								<td>${employeeWage[1]-(employeeWage[1]%1)}</td>
 							</tr>
 						</c:forEach>
 						<tr style="font-size: 30px;">
 							<td>总计</td>
-							<td>${requestScope.totalWage}</td>
+							<td>${requestScope.totalWage - (requestScope.totalWage%1)}</td>
 						</tr>
 					</table>
 					<%-- 每页${requestScope.makePage.pageSize}条记录 
@@ -149,7 +150,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="copyright">
 			<div class="container">
 				<div class="logo2  wow bounceInLeft" data-wow-delay="0.4s"><a href="index.html"><img src="images/logo2.png" alt=""/ title="logo" /></a></div>
-				<p class="write  wow bounceInRight" data-wow-delay="0.4s">Copyright &copy; 2015<a href="http://nankai.edu.cn" target="_blank" title="南开大学">南开大学社团联合会</a></p>
+				<p class="write  wow bounceInRight" data-wow-delay="0.4s">Copyright &copy; 2015<a href="http://nankai.edu.cn" target="_blank" title="南开大学">素青纺织品加工</a></p>
 			</div>
 			<div class="clearfix"></div>
 		</div>

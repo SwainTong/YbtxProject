@@ -71,12 +71,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			     <div class="h_menu4"><!-- start h_menu4 -->
 					<a class="toggleMenu" href="#">Menu</a>
 					<ul class="nav">
-						<li><a href="index.jsp">产品管理</a></li>
-						<li><a href="register_search">纳新管理</a></li>
-						<li><a href="memberManager.jsp">成员管理</a></li>
-						<li><a href="memberSearch.jsp">成员查询</a></li>
-						<li><a href="activityManager.jsp">活动管理</a></li>
-						<li><a href="material_search">物资管理</a></li>
+						<li><a href="index.jsp">首页</a></li>
+						<li><a href="EmployeeManager.jsp">员工管理</a></li>
+						<li><a href="ProductManager.jsp">产品管理</a></li>
+						<li><a href="MakeRecordManager.jsp">记录管理</a></li>
+						<li><a href="EmployeeWageCalculate.jsp">月账单</a></li>
 					</ul>
 					<div style="position: absolute;top: 22px;right: 50px;">
 						<c:if test="${sessionScope.username == null}">
@@ -122,9 +121,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<td>${employee.employee.employeeName}</td>
 								<td>${employee.product.productName}${employee.product.productType}</td>
 								<td>${employee.makeAmount}</td>
-								<td>${employee.makeAmount*employee.product.productWage}</td>
-								<td><a href="Product_searchBeforeUpdate?memberId=${member.memberId }">修改</a></td>
-                                <td><a href="Member_delete?memberId=${member.memberId }">删除</a></td>
+								<td>${employee.makeAmount*employee.product.productWage-((employee.makeAmount*employee.product.productWage)%1)}</td>
+								<td><a href="Make_fingByIdForUpdate?makeId=${employee.makeId}">修改</a></td>
+                                <td><a href="Make_delete?makeId=${employee.makeId}">删除</a></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -152,7 +151,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="copyright">
 			<div class="container">
 				<div class="logo2  wow bounceInLeft" data-wow-delay="0.4s"><a href="index.html"><img src="images/logo2.png" alt=""/ title="logo" /></a></div>
-				<p class="write  wow bounceInRight" data-wow-delay="0.4s">Copyright &copy; 2015<a href="http://nankai.edu.cn" target="_blank" title="南开大学">南开大学社团联合会</a></p>
+				<p class="write  wow bounceInRight" data-wow-delay="0.4s">Copyright &copy; 2015<a href="http://nankai.edu.cn" target="_blank" title="南开大学">素青纺织品加工</a></p>
 			</div>
 			<div class="clearfix"></div>
 		</div>

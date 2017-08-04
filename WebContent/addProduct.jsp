@@ -75,7 +75,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 				<div class="contact">
 					<h3 class="wow bounceIn" data-wow-delay="0.4s">添加产品</h3>
-					<p class="wow fadeInUpBig animated" data-wow-delay="0.4s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur,Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, </p>
+					<p class="wow fadeInUpBig animated" data-wow-delay="0.4s"></p>
 						<form class="wow bounceIn" data-wow-delay="0.4s" action="Product_add" method="post">
 							编号&nbsp;<input type="text" placeholder="产品编号" required=" " name="productId"><br>
 							名称&nbsp;<input type="text" name="productName" placeholder="产品名称" ><br>

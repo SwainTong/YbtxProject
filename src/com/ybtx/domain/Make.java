@@ -16,7 +16,27 @@ public class Make implements java.io.Serializable {
 	//查询的起止日期
 	private String startDate;
 	private String endDate;
+	//查询月份
+	private Integer month;
+	//生产人姓名
+	private String makerName;
 	
+
+	public String getMakerName() {
+		return makerName;
+	}
+
+	public void setMakerName(String makerName) {
+		this.makerName = makerName;
+	}
+
+	public Integer getMonth() {
+		return month;
+	}
+
+	public void setMonth(Integer month) {
+		this.month = month;
+	}
 
 	public String getStartDate() {
 		return startDate;

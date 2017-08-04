@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 				<div class="contact">
 					<h3 class="wow bounceIn" data-wow-delay="0.4s">添加生产记录</h3>
-					<p class="wow fadeInUpBig animated" data-wow-delay="0.4s">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur,Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, </p>
+					<p class="wow fadeInUpBig animated" data-wow-delay="0.4s"></p>
 						<form class="wow bounceIn" data-wow-delay="0.4s" action="Make_add" method="post">
 							日期&nbsp;<input type="date" name="makeDate" 
 								style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 400;font-size: 10px; border-radius: 6px;"
@@ -118,7 +118,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="col-md-3 footer-grid">
 						<h4>About studeon</h4>
 						<div class="border2"></div>
-						  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
+						  <p>素青纺织品加工, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
 						  <p class="sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
 						</div>
 						<div class="clearfix"></div>

@@ -51,18 +51,37 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 		employeeService.add(employee);
 		return SUCCESS;	
 	}
+	//更新数据库数据
+	public String update() {
+		employeeService.update(employee);
+		return SUCCESS;
+	}
+	//删除
+	public String delete() {
+		Employee employeeById = employeeService.findById(employee.getEmployeeId());
+		employeeService.delete(employeeById);
+		return SUCCESS;
+	}
 	//查找数据库中的所有数据
 	public String findAll() {
 		EmployeePage employeePage = employeeService.findAll(currentPage, pageSize);
 		ServletActionContext.getRequest().setAttribute("employeePage", employeePage);
-		if(employee.getUsage() != null && employee.getUsage().equals("MakeRecordAdd"))
+		if(employee != null && employee.getUsage() != null)
 		{
-			return "MakeRecordAdd";
+			return employee.getUsage();
 		}
 		else {
 			return SUCCESS;
 		}
 	}
+	
+	public String findAllForUpdate() {
+		EmployeePage employeePage = employeeService.findAll(currentPage, pageSize);
+		ServletActionContext.getRequest().setAttribute("employeePage", employeePage);
+		return "MakeRecordUpdate";
+	}
+	
+	
 	
 	//根据Id查找员工信息
 	public String findById() {

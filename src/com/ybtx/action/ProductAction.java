@@ -36,17 +36,32 @@ public class ProductAction extends ActionSupport implements ModelDriven<Product>
 		productService.add(product);
 		return SUCCESS;	
 	}
+	public String update() {
+		productService.update(product);
+		return SUCCESS;	
+	}
+	public String delete() {
+		productService.delete(product);
+		return SUCCESS;	
+	}
+	
 	//查找数据库中的所有数据
 	public String findAll() {
 		ProductPage productPage = productService.findAll(currentPage, pageSize);
 		ServletActionContext.getRequest().setAttribute("productPage", productPage);
-		if(product.getUsage()!=null && product.getUsage().equals("MakeRecordAdd"))
+		if(product != null && product.getUsage()!=null)
 		{
-			return "MakeRecordAdd";
+			return product.getUsage();
 		}
 		else {
 			return SUCCESS;
 		}
+	}
+	
+	public String findAllForUpdate() {
+		ProductPage productPage = productService.findAll(currentPage, pageSize);
+		ServletActionContext.getRequest().setAttribute("productPage", productPage);
+		return "MakeRecordUpdate";
 	}
 	
 	public int getCurrentPage() {

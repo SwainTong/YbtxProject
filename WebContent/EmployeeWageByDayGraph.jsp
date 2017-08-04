@@ -10,10 +10,10 @@
   <script type="text/javascript" src="http://cdn.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
   <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
   <script type="text/javascript" src="http://cdn.hcharts.cn/highcharts/exporting.js"></script>
-  <!-- 先把要用到的数据拿出来,即工人每天的工资表 -->
+ <%--  <!-- 先把要用到的数据拿出来,即工人每天的工资表 -->
   <c:if test="${empty requestScope.employeeWageByDay}">
 	<jsp:forward page="Make_employeeWageByDay"></jsp:forward>
-  </c:if>
+  </c:if> --%>
 
   <script>
   	

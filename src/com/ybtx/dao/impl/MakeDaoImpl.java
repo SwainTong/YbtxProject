@@ -40,7 +40,7 @@ public class MakeDaoImpl extends HibernateDaoSupport implements MakeDao{
 		//找到所有产品，实现分页功能
 		List list = this.getHibernateTemplate().executeFind(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws HibernateException,SQLException {
-				Query query  = session.createQuery("from Make");
+				Query query  = session.createQuery("from Make order by makeId desc");
 				query.setFirstResult((currentPage-1)*pageSize);
 				query.setMaxResults(pageSize);
 				List<Product> list = query.list();
