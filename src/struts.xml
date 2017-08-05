@@ -11,6 +11,7 @@
 			<result name="success">ProductManager.jsp</result>
 			<result name="MakeRecordAdd">MakeRecordAdd.jsp</result>			
 			<result name="MakeRecordUpdate">MakeRecordUpdate.jsp</result>
+			<result name="findById">ProductUpdate.jsp</result>
 		</action>
 		<action name="Employee_*" class="EmployeeAction" method="{1}">
 			<result name="success">EmployeeManager.jsp</result>

@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>更新生产记录</title>
+<title>修改产品</title>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
 <!-- Custom Theme files -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
@@ -26,14 +25,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 
 </head>
-
- <!-- 进入之前，先从数据库把员工和产品信息给找出来 -->
-<c:if test="${empty requestScope.employeePage}">
-	<jsp:forward page="Employee_findAllForUpdate"></jsp:forward>
-</c:if>
-<c:if test="${empty requestScope.productPage}">
-	<jsp:forward page="Product_findAllForUpdate"></jsp:forward>
-</c:if> 
 <body>
 	<div class="header box css3-shadow" id="head">
  	<div class="container">
@@ -83,28 +74,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class ="contact-section">
 			<div class="container">
 				<div class="contact">
-					<h3 class="wow bounceIn" data-wow-delay="0.4s">更新生产记录</h3>
+					<h3 class="wow bounceIn" data-wow-delay="0.4s">修改产品</h3>
 					<p class="wow fadeInUpBig animated" data-wow-delay="0.4s"></p>
-						<form class="wow bounceIn" data-wow-delay="0.4s" action="Make_update" method="post">
-							<input type="hidden" name="makeId" value="${requestScope.makePage.makeId}">
-							日期&nbsp;<input type="date" name="makeDate" value="${requestScope.makePage.makeDate}"
-								style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 400;font-size: 10px; border-radius: 6px;"
-							><br><br>
-							姓名&nbsp;<select name="employeeId" value="${requestScope.makePage.employeeId}"
-								style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 400;font-size: 20px; border-radius: 6px;"
-							>
-								<c:forEach items="${requestScope.employeePage}" var="employee">
-							    	<option value="${employee.employeeId}">${employee.employeeName}</option>
-								</c:forEach>
-					    	</select><br><br>
-							产品&nbsp;<select name="productId" value="${requestScope.makePage.productId}"
-								style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 400;font-size: 20px; border-radius: 6px;"
-							>
-								<c:forEach items="${requestScope.productPage}" var="product">
-							    	<option value="${product.productId}">${product.productType}${product.productName}</option>
-								</c:forEach>
-					    	</select><br>
-							数量&nbsp;<input type="text" name="makeAmount" value="${requestScope.makePage.makeAmount}" style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 400;font-size: 20px; border-radius: 6px;"><br><br>
+						<form class="wow bounceIn" data-wow-delay="0.4s" action="Product_update" method="post">
+							<%-- 编号&nbsp;--%><input type="hidden" placeholder="产品编号" required=" " name="productId" value="${requestScope.nproduct.productId}"><br>
+							名称&nbsp;<input type="text" name="productName" placeholder="产品名称" value="${requestScope.nproduct.productName}"><br>
+							类别&nbsp;<input type="text" name="productType" placeholder="产品类别" value="${requestScope.nproduct.productType}"><br>
+							<input type="hidden" name="productAmount" placeholder="产品数量" value="0">
+							工钱&nbsp;<input type="text" name="productWage" placeholder="产品工钱" value="${requestScope.nproduct.productWage}"><br>
+							<!-- 总价&nbsp; --><input type="hidden" name="productMargin" placeholder="产品总价" value="${requestScope.nproduct.productMargin}"><br><br><br>
 							<input type="submit" value="提交">
 						</form>
 					</div>	
@@ -119,7 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="col-md-3 footer-grid">
 						<h4>About studeon</h4>
 						<div class="border2"></div>
-						  <p>素青纺织品加工, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
+						  <p>素青纺织品加工Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
 						  <p class="sub">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id arcu neque, at convallis est felis.</p>
 						</div>
 						<div class="clearfix"></div>

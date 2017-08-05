@@ -92,14 +92,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							姓名&nbsp;<select name="employeeId" 
 								style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 400;font-size: 20px; border-radius: 6px;"
 							>
-								<c:forEach items="${requestScope.employeePage.dataList}" var="employee">
+								<c:forEach items="${requestScope.employeePage}" var="employee">
 							    	<option value="${employee.employeeId}">${employee.employeeName}</option>
 								</c:forEach>
 					    	</select><br><br>
 							产品&nbsp;<select name="productId" 
 								style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 400;font-size: 20px; border-radius: 6px;"
 							>
-								<c:forEach items="${requestScope.productPage.dataList}" var="product">
+								<c:forEach items="${requestScope.productPage}" var="product">
 							    	<option value="${product.productId}">${product.productType}${product.productName}</option>
 								</c:forEach>
 					    	</select><br>

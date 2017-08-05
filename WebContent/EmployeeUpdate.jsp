@@ -79,7 +79,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3 class="wow bounceIn" data-wow-delay="0.4s">修改员工</h3>
 					<p class="wow fadeInUpBig animated" data-wow-delay="0.4s"></p>
 						<form class="wow bounceIn" data-wow-delay="0.4s"  action="Employee_update" method="post">
-							<!-- 工号&nbsp;<input type="text" name="employeeId" placeholder="工号" ><br> -->
+							<!-- 工号&nbsp;--><input type="hidden" name="employeeId" placeholder="工号" value="${requestScope.employeeById.employeeId}"><br>
 							姓名&nbsp;<input type="text" name="employeeName" placeholder="姓名" value="${requestScope.employeeById.employeeName}"><br>
 							电话&nbsp;<input type="text" name="employeePhone" placeholder="电话" value="${requestScope.employeeById.employeePhone}"><br><br>
 							<input type="submit" value="提交">

@@ -1,5 +1,7 @@
 package com.ybtx.action;
 
+import java.util.List;
+
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -64,20 +66,25 @@ public class EmployeeAction extends ActionSupport implements ModelDriven<Employe
 	}
 	//查找数据库中的所有数据
 	public String findAll() {
-		EmployeePage employeePage = employeeService.findAll(currentPage, pageSize);
-		ServletActionContext.getRequest().setAttribute("employeePage", employeePage);
+		
 		if(employee != null && employee.getUsage() != null)
 		{
+			//如果不是为了在管理页展示而查询，那就不用分页
+			List<Employee> employeeList = employeeService.findAllForList();
+			ServletActionContext.getRequest().setAttribute("employeePage", employeeList);
 			return employee.getUsage();
 		}
 		else {
+			//分页，每页固定条数
+			EmployeePage employeePage = employeeService.findAll(currentPage, pageSize);
+			ServletActionContext.getRequest().setAttribute("employeePage", employeePage);
 			return SUCCESS;
 		}
 	}
-	
+
 	public String findAllForUpdate() {
-		EmployeePage employeePage = employeeService.findAll(currentPage, pageSize);
-		ServletActionContext.getRequest().setAttribute("employeePage", employeePage);
+		List<Employee> employeeList = employeeService.findAllForList();
+		ServletActionContext.getRequest().setAttribute("employeePage", employeeList);
 		return "MakeRecordUpdate";
 	}
 	

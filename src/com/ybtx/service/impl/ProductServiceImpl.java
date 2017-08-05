@@ -3,6 +3,7 @@ package com.ybtx.service.impl;
 import java.util.List;
 
 import com.ybtx.dao.ProductDao;
+import com.ybtx.domain.Employee;
 import com.ybtx.domain.Product;
 import com.ybtx.service.ProductService;
 import com.ybtx.vo.ProductPage;
@@ -47,6 +48,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public Product findById(int pId) {
 		return productDao.findById(pId);
+	}
+
+	@Override
+	public List<Product> findAllForList() {
+		return productDao.findAllForList();
 	}
 	
 }

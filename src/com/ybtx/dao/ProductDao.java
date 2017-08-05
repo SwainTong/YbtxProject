@@ -17,6 +17,8 @@ public interface ProductDao {
 	public int findTotalCount();
 	//根据id去查询产品
 	public Product findById(int pId);
+	//不分页的查询全部
+	public List<Product> findAllForList();
 	/*public Organization findBookById(int oid);
 	public int findTotalCount();*/
 	

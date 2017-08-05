@@ -17,4 +17,6 @@ public interface EmployeeService {
 	public EmployeePage findAll(int currentPage,int pageSize);
 	//根据Id查询
 	public Employee findById(int eId);
+	//查询全部，不分页
+	public List<Employee> findAllForList();
 }

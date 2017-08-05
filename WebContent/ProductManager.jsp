@@ -105,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="panel-body">
 					<table class="table table-striped">
 						<tr>
-							<th>型号</th>
+							<!-- <th>型号</th> -->
 							<th>名称</th>
 							<th>类型</th>
 							<th>工价</th>
@@ -114,12 +114,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tr>
 						<c:forEach items="${requestScope.productPage.dataList}" var="product">
 							<tr>
-								<td>${product.productId}</td>
+								<%-- <td>${product.productId}</td> --%>
 								<td>${product.productName}</td>
 								<td>${product.productType}</td>
 								<td>${product.productWage}</td>
-								<td><a href="Product_searchBeforeUpdate?memberId=${member.memberId }">修改</a></td>
-                                <td><a href="Member_delete?memberId=${member.memberId }">删除</a></td>
+								<td><a href="Product_findById?productId=${product.productId}">修改</a></td>
+                                <td><a href="Product_delete?productId=${product.productId}">删除</a></td>
 							</tr>
 						</c:forEach>
 					</table>

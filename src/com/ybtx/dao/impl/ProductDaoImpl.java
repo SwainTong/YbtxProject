@@ -56,4 +56,16 @@ public class ProductDaoImpl extends HibernateDaoSupport implements ProductDao{
 		return this.getHibernateTemplate().get(Product.class, pId);
 	}
 
+	@Override
+	public List<Product> findAllForList() {
+		List list = this.getHibernateTemplate().executeFind(new HibernateCallback() {
+			public Object doInHibernate(Session session) throws HibernateException,SQLException {
+				Query query  = session.createQuery("from Product");
+				List<Product> list = query.list();
+				return list;
+			}
+		});
+		return list;
+	}
+
 }

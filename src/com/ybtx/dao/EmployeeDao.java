@@ -17,6 +17,8 @@ public interface EmployeeDao {
 	public int findTotalCount();
 	//根据id去查询员工
 	public Employee findById(int eid);
+	//不分页的查询全部
+	public List<Employee> findAllForList();
 	/*public int findTotalCount();*/
 	
 	/*public Activity findActivityById(int aid);*/

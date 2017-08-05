@@ -56,4 +56,16 @@ public class EmployeeDaoImpl extends HibernateDaoSupport implements EmployeeDao{
 	public Employee findById(int eid) {
 		return this.getHibernateTemplate().get(Employee.class, eid);
 	}
+
+	@Override
+	public List<Employee> findAllForList() {
+		List list = this.getHibernateTemplate().executeFind(new HibernateCallback() {
+			public Object doInHibernate(Session session) throws HibernateException,SQLException {
+				Query query  = session.createQuery("from Employee");
+				List<Product> list = query.list();
+				return list;
+			}
+		});
+		return list;
+	}
 }

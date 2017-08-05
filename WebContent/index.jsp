@@ -64,18 +64,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class ="contact-section">
 		<div class="container">
 			<div class="contact">
-				<h3 class="wow bounceIn" data-wow-delay="0.4s">管理系统</h3><br><br>
+				<h3 class="wow bounceIn" data-wow-delay="0.4s">生产管理系统</h3><br><br>
 				<c:actionerror/>
-				<button 
+				<a href="MakeRecordAdd.jsp"><button 
 					style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 600;font-size: 20px; border-radius: 6px;"
-				 ><a href="MakeRecordAdd.jsp">快捷记账</a></button><br><br><br>
-				<button 
+				 >快捷记账</button></a><br><br><br>
+				<a href="EmployeeManager.jsp"><button 
 					style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 600;font-size: 20px; border-radius: 6px;"
-				 ><a href="EmployeeManager.jsp">员工管理</a></button><br><br><br>
-				 <button style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 600;font-size: 20px; border-radius: 6px;"
-				 ><a href="ProductManager.jsp">产品管理</a></button><br><br><br>
-				 <button style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 600;font-size: 20px; border-radius: 6px;"
-				 ><a href="MakeRecordManager.jsp">记录管理</a></button><br><br><br>
+				 >员工管理</button></a><br><br><br>
+				 <a href="ProductManager.jsp"><button style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 600;font-size: 20px; border-radius: 6px;"
+				 >产品管理</button></a><br><br><br>
+				 <a href="MakeRecordManager.jsp"><button style="border: 1px solid #DCDCDF; color:#000;height:50px;background:#fff;width: 25%;font-weight: 600;font-size: 20px; border-radius: 6px;"
+				 >记录管理</button></a><br><br><br>
 				</div>	
 		</div>
 	</div>

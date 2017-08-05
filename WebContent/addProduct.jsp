@@ -77,12 +77,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<h3 class="wow bounceIn" data-wow-delay="0.4s">添加产品</h3>
 					<p class="wow fadeInUpBig animated" data-wow-delay="0.4s"></p>
 						<form class="wow bounceIn" data-wow-delay="0.4s" action="Product_add" method="post">
-							编号&nbsp;<input type="text" placeholder="产品编号" required=" " name="productId"><br>
+							<!-- 编号&nbsp;<input type="text" placeholder="产品编号" required=" " name="productId"><br> -->
 							名称&nbsp;<input type="text" name="productName" placeholder="产品名称" ><br>
 							类别&nbsp;<input type="text" name="productType" placeholder="产品类别" ><br>
 							<input type="hidden" name="productAmount" placeholder="产品数量" value="0">
 							工钱&nbsp;<input type="text" name="productWage" placeholder="产品工钱" ><br>
-							总价&nbsp;<input type="text" name="productMargin" placeholder="产品总价" ><br><br><br>
+							<!-- 总价&nbsp; --><input type="hidden" name="productMargin" placeholder="产品总价" value="0"><br><br>
 							<input type="submit" value="添加">
 						</form>
 					</div>	
